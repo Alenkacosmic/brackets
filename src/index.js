@@ -4,11 +4,9 @@ module.exports = function check(str, bracketsConfig) {
     }
 
     let expr = '';
-
     for (let item = 0; item < str.length; item++) {
 
         for (let patt = 0; patt < bracketsConfig.length; patt++) { 
-
             if (bracketsConfig[patt][0] === str[item]) { 
                 if (expr.length && expr[expr.length - 1] === bracketsConfig[patt][0] && bracketsConfig[patt][1] === str[item]) {
                     expr = expr.slice(0, expr.length - 1);
@@ -28,7 +26,7 @@ module.exports = function check(str, bracketsConfig) {
         }
     }
 
-    if (expr.length) {
+    if (expr.length !== 0) {
         return false;
     }
 
